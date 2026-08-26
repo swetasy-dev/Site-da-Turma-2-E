@@ -5,7 +5,25 @@
         ? window.supabase.createClient(remoteConfig.url, remoteConfig.anonKey)
         : null;
 
-    let appData = localData || {
+        let appData = localData || {
+            siteContent: {
+                homeTitle: 'Bem-vindo à Central da Turma 2º E',
+                homeDescription: 'Seu hub digital para todas as informações importantes da turma. Fique por dentro de avisos, atividades, horários e muito mais!',
+                homePendingLabel: 'Atividades Pendentes',
+                homeNextClassLabel: 'Próxima Aula',
+                homeAnnouncementsTitle: 'Últimos Avisos',
+                homeAnnouncementsButton: 'Ver Todos',
+                homeDatesTitle: 'Próximas Datas',
+                homeCalendarButton: 'Ver Calendário',
+                homeActivitiesTitle: 'Próximas Atividades',
+                homeActivitiesButton: 'Ver Todas',
+                aboutTitle: 'Sobre a Turma 2º E',
+                aboutParagraph1: 'Bem-vindos à página da turma 2º E, n sei mais oq escrever',
+                aboutParagraph2: 'n sei tambem oq escrever dnv',
+                aboutYear: '2026',
+                aboutRepresentatives: 'Julia Portugal, Giovana Sabrina',
+                aboutObjective: 'n sei oq escrever dnv'
+            },
             announcements: [
                 { id: 'a1', title: 'Reunião de Pais e Mestres', description: 'Reunião geral para discutir o desempenho do 1º bimestre.', date: '2024-05-15', category: 'Geral', important: true },
                 { id: 'a2', title: 'Início das Olimpíadas Escolares', description: 'Cerimônia de abertura das olimpíadas internas.', date: '2024-06-01', category: 'Evento', important: false },
@@ -51,6 +69,27 @@
             ]
         };
 
+        const defaultSiteContent = {
+            homeTitle: 'Bem-vindo à Central da Turma 2º E',
+            homeDescription: 'Seu hub digital para todas as informações importantes da turma. Fique por dentro de avisos, atividades, horários e muito mais!',
+            homePendingLabel: 'Atividades Pendentes',
+            homeNextClassLabel: 'Próxima Aula',
+            homeAnnouncementsTitle: 'Últimos Avisos',
+            homeAnnouncementsButton: 'Ver Todos',
+            homeDatesTitle: 'Próximas Datas',
+            homeCalendarButton: 'Ver Calendário',
+            homeActivitiesTitle: 'Próximas Atividades',
+            homeActivitiesButton: 'Ver Todas',
+            aboutTitle: 'Sobre a Turma 2º E',
+            aboutParagraph1: 'Bem-vindos à página da turma 2º E, n sei mais oq escrever',
+            aboutParagraph2: 'n sei tambem oq escrever dnv',
+            aboutYear: '2026',
+            aboutRepresentatives: 'Julia Portugal, Giovana Sabrina',
+            aboutObjective: 'n sei oq escrever dnv'
+        };
+
+        appData.siteContent = { ...defaultSiteContent, ...(appData.siteContent || {}) };
+
         async function loadRemoteData() {
             if (!supabaseClient) return;
 
@@ -67,6 +106,7 @@
 
             if (data && data.data) {
                 appData = data.data;
+                appData.siteContent = { ...defaultSiteContent, ...(appData.siteContent || {}) };
                 localStorage.setItem('classCentralData', JSON.stringify(appData));
                 renderAllContent();
             }
@@ -172,6 +212,7 @@
 
         // --- Render Functions ---
         function renderAllContent() {
+            renderSiteContent();
             renderHomePage();
             renderAnnouncementsPage();
             renderCalendarPage();
@@ -187,7 +228,34 @@
             renderAdminSchedule();
             renderAdminSubjects();
             renderAdminLinks();
+            renderAdminSiteContent();
             populateSubjectSelects(); // Update subject dropdowns
+        }
+
+        function renderSiteContent() {
+            const content = appData.siteContent;
+            const elements = {
+                'home-title': content.homeTitle,
+                'home-description': content.homeDescription,
+                'home-pending-label': content.homePendingLabel,
+                'home-next-class-label': content.homeNextClassLabel,
+                'home-announcements-title': content.homeAnnouncementsTitle,
+                'home-announcements-button': content.homeAnnouncementsButton,
+                'home-dates-title': content.homeDatesTitle,
+                'home-calendar-button': content.homeCalendarButton,
+                'home-activities-title': content.homeActivitiesTitle,
+                'home-activities-button': content.homeActivitiesButton,
+                'about-title': content.aboutTitle,
+                'about-paragraph-1': content.aboutParagraph1,
+                'about-paragraph-2': content.aboutParagraph2,
+                'about-year': content.aboutYear,
+                'about-representatives': content.aboutRepresentatives,
+                'about-objective': content.aboutObjective
+            };
+            Object.entries(elements).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = value;
+            });
         }
 
         function renderPage(pageId) {
@@ -794,6 +862,7 @@ ${dayActivities.map(a => a.name).join(', ')}`;
                     case 'subjects': renderAdminSubjects(); break;
                     case 'links': renderAdminLinks(); break;
                     case 'mural': renderAdminMural(); break;
+                    case 'content': renderAdminSiteContent(); break;
                 }
             });
         });
@@ -805,6 +874,43 @@ ${dayActivities.map(a => a.name).join(', ')}`;
             document.getElementById('admin-upcoming-events-count').textContent = appData.events.filter(e => new Date(e.date) >= new Date()).length;
             document.getElementById('admin-subjects-count').textContent = appData.subjects.length;
         }
+
+        const siteContentForm = document.getElementById('site-content-form');
+        const siteContentFields = {
+            homeTitle: 'content-home-title',
+            homeDescription: 'content-home-description',
+            homePendingLabel: 'content-home-pending-label',
+            homeNextClassLabel: 'content-home-next-class-label',
+            homeAnnouncementsTitle: 'content-home-announcements-title',
+            homeAnnouncementsButton: 'content-home-announcements-button',
+            homeDatesTitle: 'content-home-dates-title',
+            homeCalendarButton: 'content-home-calendar-button',
+            homeActivitiesTitle: 'content-home-activities-title',
+            homeActivitiesButton: 'content-home-activities-button',
+            aboutTitle: 'content-about-title',
+            aboutParagraph1: 'content-about-paragraph-1',
+            aboutParagraph2: 'content-about-paragraph-2',
+            aboutYear: 'content-about-year',
+            aboutRepresentatives: 'content-about-representatives',
+            aboutObjective: 'content-about-objective'
+        };
+
+        function renderAdminSiteContent() {
+            Object.entries(siteContentFields).forEach(([field, elementId]) => {
+                const element = document.getElementById(elementId);
+                if (element) element.value = appData.siteContent[field] || '';
+            });
+        }
+
+        siteContentForm.addEventListener('submit', event => {
+            event.preventDefault();
+            Object.entries(siteContentFields).forEach(([field, elementId]) => {
+                appData.siteContent[field] = document.getElementById(elementId).value.trim();
+            });
+            saveData();
+            renderAdminSiteContent();
+            alert('Textos salvos com sucesso!');
+        });
 
         // Admin Announcements
         const announcementForm = document.getElementById('announcement-form');
