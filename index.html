@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Central da Turma 2º E</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300C8FF'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z'/%3E%3C/svg%3E" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy-dark': 'var(--color-navy-dark)',
+                        'navy-secondary': 'var(--color-navy-secondary)',
+                        'cyan-light': 'var(--color-cyan-light)',
+                        'gray-blue': 'var(--color-gray-blue)',
+                        'purple-soft': 'var(--color-purple-soft)',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' },
+                        },
+                        slideInUp: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        subtleFloat: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        },
+                        subtleGlow: {
+                            '0%, 100%': { 'box-shadow': '0 0 5px rgba(0, 200, 255, 0.3)' },
+                            '50%': { 'box-shadow': '0 0 10px rgba(0, 200, 255, 0.6)' },
+                        },
+                    },
+                    animation: {
+                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
+                        'slideInUp': 'slideInUp 0.6s ease-out forwards',
+                        'subtleFloat': 'subtleFloat 3s ease-in-out infinite',
+                        'subtleGlow': 'subtleGlow 2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-white min-h-screen flex flex-col items-center justify-center relative">
+    <div class="bg-light-effect top-1/4 left-1/4"></div>
+    <div class="bg-light-effect-2 bottom-1/4 right-1/4"></div>
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 md:p-8 flex flex-col lg:flex-row gap-6 relative z-10">
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar-nav">
+            <span class="mobile-menu-icon" aria-hidden="true">☰</span>
+            <span>Menu</span>
+        </button>
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar-nav" class="lg:w-64 w-full bg-navy-secondary glass-card rounded-xl p-4 lg:p-6 flex flex-col gap-2 shadow-lg animate-slideInUp lg:sticky top-8 self-start" aria-label="Navegação principal">
+            <h2 class="text-2xl font-bold text-cyan-light mb-4 text-center futuristic-detail">2º E Central</h2>
+            <ul class="flex lg:flex-col flex-wrap justify-center lg:justify-start gap-2">
+                <li><a href="#" data-page="home" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Início</a></li>
+                <li><a href="#" data-page="announcements" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Avisos</a></li>
+                <li><a href="#" data-page="calendar" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Calendário</a></li>
+                <li><a href="#" data-page="activities" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Atividades</a></li>
+                <li><a href="#" data-page="schedule" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Horário</a></li>
+                <li><a href="#" data-page="subjects" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Matérias</a></li>
+                <li><a href="#" data-page="mural" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Mural</a></li>
+                <li><a href="#" data-page="links" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Links</a></li>
+                <li><a href="#" data-page="about" class="nav-link block px-4 py-2 rounded-lg text-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Sobre</a></li>
+                <li class="mt-4 pt-4 border-t border-gray-blue/20"><a href="#" data-page="admin" class="nav-link block px-4 py-2 rounded-lg text-lg bg-purple-soft/20 text-purple-soft hover:bg-purple-soft hover:text-white transition-colors duration-200">Painel Admin</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="content-area" class="flex-1 w-full flex flex-col gap-6">
+
+            <!-- Home Page -->
+            <section id="page-home" class="page-content active">
+                <div class="glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp">
+                    <h1 class="text-4xl font-extrabold text-cyan-light mb-4">Bem-vindo à Central da Turma 2º E</h1>
+                    <p class="text-gray-blue text-lg mb-6">Seu hub digital para todas as informações importantes da turma. Fique por dentro de avisos, atividades, horários e muito mais!</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="glass-card-glow rounded-lg p-4 text-center">
+                            <p class="text-sm text-gray-blue">Atividades Pendentes</p>
+                            <p class="text-xl font-bold text-white mt-1 futuristic-detail" id="pending-activities-count">0</p>
+                        </div>
+                        <div class="glass-card-glow rounded-lg p-4 text-center">
+                            <p class="text-sm text-gray-blue">Próxima Aula</p>
+                            <p class="text-xl font-bold text-white mt-1 futuristic-detail" id="next-class">Carregando...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp delay-100">
+                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Últimos Avisos</h2>
+                        <div id="latest-announcements" class="space-y-4">
+                            <!-- Latest announcements will be loaded here -->
+                            <p class="text-gray-blue">Nenhum aviso recente.</p>
+                        </div>
+                        <button id="home-announcements-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Ver Todos</button>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp delay-200">
+                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximas Datas</h2>
+                        <div id="upcoming-dates" class="space-y-4">
+                            <!-- Upcoming dates will be loaded here -->
+                            <p class="text-gray-blue">Nenhuma data próxima.</p>
+                        </div>
+                        <button id="home-calendar-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Ver Calendário</button>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 md:p-8 mt-6 animate-slideInUp delay-300">
+                    <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximas Atividades</h2>
+                    <div id="upcoming-activities" class="space-y-4">
+                        <!-- Upcoming activities will be loaded here -->
+                        <p class="text-gray-blue">Nenhuma atividade próxima.</p>
+                    </div>
+                    <button id="home-activities-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Ver Todas</button>
+                </div>
+            </section>
+
+            <!-- Announcements Page -->
+            <section id="page-announcements" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Avisos Importantes</h1>
+                <div id="announcements-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Announcements will be loaded here -->
+                    <p class="text-gray-blue animate-fadeIn">Nenhum aviso disponível.</p>
+                </div>
+            </section>
+
+            <!-- Calendar Page -->
+            <section id="page-calendar" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Calendário da Turma</h1>
+                <div class="glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp">
+                    <div id="calendar-display" class="grid grid-cols-7 gap-1 text-center text-gray-blue">
+                        <div class="font-bold text-cyan-light">Dom</div>
+                        <div class="font-bold text-cyan-light">Seg</div>
+                        <div class="font-bold text-cyan-light">Ter</div>
+                        <div class="font-bold text-cyan-light">Qua</div>
+                        <div class="font-bold text-cyan-light">Qui</div>
+                        <div class="font-bold text-cyan-light">Sex</div>
+                        <div class="font-bold text-cyan-light">Sáb</div>
+                        <!-- Calendar days will be rendered here -->
+                    </div>
+                    <div class="flex justify-between items-center mt-4">
+                        <button id="prev-month" class="px-4 py-2 bg-navy-secondary text-white rounded-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">&lt; Anterior</button>
+                        <span id="current-month-year" class="text-xl font-bold text-white"></span>
+                        <button id="next-month" class="px-4 py-2 bg-navy-secondary text-white rounded-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Próximo &gt;</button>
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp delay-100">
+                    <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximos Eventos</h2>
+                    <div id="upcoming-events-list" class="space-y-4">
+                        <!-- Upcoming events will be loaded here -->
+                        <p class="text-gray-blue">Nenhum evento próximo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activities Page -->
+            <section id="page-activities" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Atividades e Trabalhos</h1>
+                <div class="glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp">
+                    <div class="flex flex-wrap gap-4 mb-4">
+                        <select id="activity-filter-subject" class="bg-navy-secondary text-white rounded-lg px-4 py-2 focus:ring-cyan-light focus:border-cyan-light">
+                            <option value="all">Todas as Matérias</option>
+                        </select>
+                        <select id="activity-filter-status" class="bg-navy-secondary text-white rounded-lg px-4 py-2 focus:ring-cyan-light focus:border-cyan-light">
+                            <option value="all">Todos os Status</option>
+                            <option value="pending">Pendente</option>
+                            <option value="upcoming">Próximo</option>
+                            <option value="completed">Concluído</option>
+                        </select>
+                    </div>
+                    <div id="activities-list" class="space-y-4">
+                        <!-- Activities will be loaded here -->
+                        <p class="text-gray-blue">Nenhuma atividade disponível.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Page -->
+            <section id="page-schedule" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Horário das Aulas</h1>
+                <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp overflow-x-auto">
+                    <table class="w-full text-left table-auto">
+                        <thead>
+                            <tr class="border-b border-gray-blue/20">
+                                <th class="py-3 px-2 text-cyan-light">Horário</th>
+                                <th class="py-3 px-2 text-cyan-light">Segunda-feira</th>
+                                <th class="py-3 px-2 text-cyan-light">Terça-feira</th>
+                                <th class="py-3 px-2 text-cyan-light">Quarta-feira</th>
+                                <th class="py-3 px-2 text-cyan-light">Quinta-feira</th>
+                                <th class="py-3 px-2 text-cyan-light">Sexta-feira</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-table-body">
+                            <!-- Schedule rows will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Subjects Page -->
+            <section id="page-subjects" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Matérias</h1>
+                <div id="subjects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Subject cards will be loaded here -->
+                    <p class="text-gray-blue">Nenhuma matéria disponível.</p>
+                </div>
+            </section>
+
+            <!-- Subject Detail Page (hidden by default, shown when a subject is clicked) -->
+            <section id="page-subject-detail" class="page-content hidden">
+                <button class="back-to-subjects px-4 py-2 bg-navy-secondary text-white rounded-lg hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200 mb-4">&lt; Voltar para Matérias</button>
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-4" id="subject-detail-title"></h1>
+                <p class="text-gray-blue text-lg mb-6" id="subject-detail-professor"></p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp">
+                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximas Atividades</h2>
+                        <div id="subject-activities-list" class="space-y-4">
+                            <p class="text-gray-blue">Nenhuma atividade para esta matéria.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp delay-100">
+                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximas Provas</h2>
+                        <div id="subject-tests-list" class="space-y-4">
+                            <p class="text-gray-blue">Nenhuma prova para esta matéria.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 md:p-8 mt-6 animate-slideInUp delay-200">
+                    <h2 class="text-2xl font-bold text-cyan-light mb-4">Materiais e Links</h2>
+                    <div id="subject-materials-list" class="space-y-4">
+                        <p class="text-gray-blue">Nenhum material ou link disponível.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mural Page -->
+            <section id="page-mural" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Mural da Turma</h1>
+                <div id="mural-gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Mural items will be loaded here -->
+                    <p class="text-gray-blue">Nenhum item no mural ainda.</p>
+                </div>
+            </section>
+
+            <!-- Links Page -->
+            <section id="page-links" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Links Importantes</h1>
+                <div id="links-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Links will be loaded here -->
+                    <p class="text-gray-blue">Nenhum link importante disponível.</p>
+                </div>
+            </section>
+
+            <!-- About Page -->
+            <section id="page-about" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Sobre a Turma 2º E</h1>
+                <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp">
+                    <p class="text-gray-blue text-lg mb-4">Bem-vindos à página da turma 2º E! Somos uma turma vibrante e dedicada, sempre em busca de conhecimento e novas experiências.</p>
+                    <p class="text-gray-blue text-lg mb-4">Este site foi criado para ser nossa central de informações, facilitando a comunicação e a organização de todas as nossas atividades acadêmicas e sociais.</p>
+                    <ul class="list-disc list-inside text-gray-blue text-lg space-y-2">
+                        <li><strong>Ano:</strong> 2026</li>
+                        <li><strong>Representantes:</strong> [Nome do Representante 1], [Nome do Representante 2]</li>
+                        <li><strong>Objetivo:</strong> Promover a colaboração e o sucesso de todos os alunos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Admin Panel Page -->
+            <section id="page-admin" class="page-content hidden">
+                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Painel Administrativo</h1>
+                <div id="admin-login" class="glass-card rounded-xl p-6 md:p-8 max-w-md mx-auto animate-slideInUp">
+                    <h2 class="text-2xl font-bold text-white mb-4">Login de Representante</h2>
+                    <p class="text-gray-blue mb-4">Entre com a conta de representante.</p>
+                    <input type="email" id="admin-email" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light mb-3" placeholder="E-mail" autocomplete="username">
+                    <input type="password" id="admin-password" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light mb-4" placeholder="Senha" autocomplete="current-password">
+                    <button id="admin-login-btn" class="w-full px-6 py-3 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Entrar</button>
+                    <p id="admin-login-error" class="text-red-500 mt-2 hidden">Não foi possível entrar. Confira seus dados.</p>
+                </div>
+
+                <div id="admin-dashboard" class="hidden">
+                    <div class="glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                            <h2 class="text-2xl font-bold text-cyan-light">Resumo do Painel</h2>
+                            <button id="admin-logout-btn" type="button" class="px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-400 transition-colors duration-200">Sair</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="glass-card-glow rounded-lg p-4 text-center">
+                                <p class="text-sm text-gray-blue">Avisos Ativos</p>
+                                <p class="text-xl font-bold text-white mt-1" id="admin-announcements-count">0</p>
+                            </div>
+                            <div class="glass-card-glow rounded-lg p-4 text-center">
+                                <p class="text-sm text-gray-blue">Atividades Pendentes</p>
+                                <p class="text-xl font-bold text-white mt-1" id="admin-pending-activities-count">0</p>
+                            </div>
+                            <div class="glass-card-glow rounded-lg p-4 text-center">
+                                <p class="text-sm text-gray-blue">Próximos Eventos</p>
+                                <p class="text-xl font-bold text-white mt-1" id="admin-upcoming-events-count">0</p>
+                            </div>
+                            <div class="glass-card-glow rounded-lg p-4 text-center">
+                                <p class="text-sm text-gray-blue">Matérias Cadastradas</p>
+                                <p class="text-xl font-bold text-white mt-1" id="admin-subjects-count">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-100">
+                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Gerenciar Conteúdo</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <button data-admin-section="announcements" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Avisos</button>
+                            <button data-admin-section="activities" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Atividades</button>
+                            <button data-admin-section="events" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Eventos</button>
+                            <button data-admin-section="schedule" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Horário</button>
+                            <button data-admin-section="subjects" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Matérias</button>
+                            <button data-admin-section="links" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Links</button>
+                            <button data-admin-section="mural" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Mural</button>
+                        </div>
+                    </div>
+
+                    <!-- Admin Sub-sections -->
+                    <div id="admin-section-announcements" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Avisos</h3>
+                        <button id="add-announcement-btn" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200 mb-4">+ Novo Aviso</button>
+                        <div id="admin-announcements-list" class="space-y-4"></div>
+                        <form id="announcement-form" class="hidden mt-4 space-y-4">
+                            <input type="hidden" id="announcement-id">
+                            <input type="text" id="announcement-title" placeholder="Título" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <textarea id="announcement-description" placeholder="Descrição" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light"></textarea>
+                            <input type="date" id="announcement-date" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <select id="announcement-category" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                                <option value="Geral">Geral</option>
+                                <option value="Atividade">Atividade</option>
+                                <option value="Prova">Prova</option>
+                                <option value="Evento">Evento</option>
+                                <option value="Urgente">Urgente</option>
+                            </select>
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="announcement-important" class="form-checkbox h-5 w-5 text-cyan-light bg-navy-secondary border-gray-blue/30 rounded focus:ring-cyan-light">
+                                <label for="announcement-important" class="text-gray-blue">Importante</label>
+                            </div>
+                            <div class="flex gap-2">
+                                <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Aviso</button>
+                                <button type="button" id="cancel-announcement-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="admin-section-activities" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Atividades</h3>
+                        <button id="add-activity-btn" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200 mb-4">+ Nova Atividade</button>
+                        <div id="admin-activities-list" class="space-y-4"></div>
+                        <form id="activity-form" class="hidden mt-4 space-y-4">
+                            <input type="hidden" id="activity-id">
+                            <input type="text" id="activity-name" placeholder="Nome da Atividade" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <select id="activity-subject" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light"></select>
+                            <input type="text" id="activity-teacher" placeholder="Professor" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <textarea id="activity-description" placeholder="Descrição" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light"></textarea>
+                            <input type="date" id="activity-dueDate" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <select id="activity-status" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                                <option value="pending">Pendente</option>
+                                <option value="upcoming">Próximo</option>
+                                <option value="completed">Concluído</option>
+                            </select>
+                            <div class="flex gap-2">
+                                <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Atividade</button>
+                                <button type="button" id="cancel-activity-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="admin-section-events" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Eventos</h3>
+                        <button id="add-event-btn" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200 mb-4">+ Novo Evento</button>
+                        <div id="admin-events-list" class="space-y-4"></div>
+                        <form id="event-form" class="hidden mt-4 space-y-4">
+                            <input type="hidden" id="event-id">
+                            <input type="text" id="event-name" placeholder="Nome do Evento" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <textarea id="event-description" placeholder="Descrição" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light"></textarea>
+                            <input type="date" id="event-date" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <select id="event-category" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                                <option value="Geral">Geral</option>
+                                <option value="Escola">Escola</option>
+                                <option value="Turma">Turma</option>
+                                <option value="Feriado">Feriado</option>
+                            </select>
+                            <div class="flex gap-2">
+                                <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Evento</button>
+                                <button type="button" id="cancel-event-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="admin-section-schedule" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Horário de Aulas</h3>
+                        <p class="text-gray-blue mb-4">Edite o horário das aulas diretamente na tabela abaixo.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left table-auto">
+                                <thead>
+                                    <tr class="border-b border-gray-blue/20">
+                                        <th class="py-3 px-2 text-cyan-light">Horário</th>
+                                        <th class="py-3 px-2 text-cyan-light">Segunda-feira</th>
+                                        <th class="py-3 px-2 text-cyan-light">Terça-feira</th>
+                                        <th class="py-3 px-2 text-cyan-light">Quarta-feira</th>
+                                        <th class="py-3 px-2 text-cyan-light">Quinta-feira</th>
+                                        <th class="py-3 px-2 text-cyan-light">Sexta-feira</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-schedule-table-body">
+                                    <!-- Admin schedule rows will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <button id="save-schedule-btn" class="mt-4 px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Horário</button>
+                    </div>
+
+                    <div id="admin-section-subjects" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Matérias</h3>
+                        <button id="add-subject-btn" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200 mb-4">+ Nova Matéria</button>
+                        <div id="admin-subjects-list" class="space-y-4"></div>
+                        <form id="subject-form" class="hidden mt-4 space-y-4">
+                            <input type="hidden" id="subject-id">
+                            <input type="text" id="subject-name" placeholder="Nome da Matéria" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <input type="text" id="subject-professor" placeholder="Professor" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <textarea id="subject-materials" placeholder="Materiais/Links (um por linha)" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light"></textarea>
+                            <div class="flex gap-2">
+                                <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Matéria</button>
+                                <button type="button" id="cancel-subject-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="admin-section-links" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Links Importantes</h3>
+                        <button id="add-link-btn" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200 mb-4">+ Novo Link</button>
+                        <div id="admin-links-list" class="space-y-4"></div>
+                        <form id="link-form" class="hidden mt-4 space-y-4">
+                            <input type="hidden" id="link-id">
+                            <input type="text" id="link-name" placeholder="Nome do Link" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <input type="url" id="link-url" placeholder="URL" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <input type="text" id="link-icon" placeholder="Ícone (ex: fa-google)" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white focus:outline-none focus:ring-2 focus:ring-cyan-light">
+                            <div class="flex gap-2">
+                                <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Link</button>
+                                <button type="button" id="cancel-link-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="admin-section-mural" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gerenciar Mural</h3>
+                        <button id="add-mural-btn" type="button" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200 mb-4">+ Novo Item</button>
+                        <div id="admin-mural-list" class="space-y-4"></div>
+                        <form id="mural-form" class="hidden mt-4 space-y-4">
+                            <input type="hidden" id="mural-id">
+                            <select id="mural-type" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                                <option value="text">Mensagem</option>
+                                <option value="image">Imagem</option>
+                            </select>
+                            <textarea id="mural-content" placeholder="Mensagem ou URL da imagem" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required></textarea>
+                            <input type="text" id="mural-caption" placeholder="Legenda (para imagem)" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white">
+                            <div class="flex gap-2">
+                                <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Item</button>
+                                <button type="button" id="cancel-mural-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-cyan-light text-navy-dark p-3 rounded-full shadow-lg hover:bg-white transition-colors duration-200 hidden z-50" aria-label="Voltar ao topo">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-config.js"></script>
+        <script src="script.js"></script>
+</body>
+</html>

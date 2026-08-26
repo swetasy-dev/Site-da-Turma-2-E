@@ -1,0 +1,16 @@
+{
+  "name": "Central da Turma 2º E",
+  "description": "Um site moderno e responsivo para a turma 2º E, funcionando como uma central de informações com avisos, atividades, calendário, horário de aulas e um painel administrativo para representantes. As informações são salvas no armazenamento local do navegador para demonstração; para persistência compartilhada em um ambiente estático como o GitHub Pages, seria necessário um CMS de site estático ou a edição de arquivos JSON diretamente no repositório.",
+  "entry": "index.html",
+  "multiPage": false,
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "supabase-config.js",
+    "supabase-schema.sql",
+    "metadata.json"
+  ],
+  "tailwind": { "source": "play-cdn" },
+  "generatedAt": "2024-05-14T15:20:00Z"
+}
