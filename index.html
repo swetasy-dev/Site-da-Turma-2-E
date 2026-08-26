@@ -83,15 +83,15 @@
             <!-- Home Page -->
             <section id="page-home" class="page-content active">
                 <div class="glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp">
-                    <h1 class="text-4xl font-extrabold text-cyan-light mb-4">Bem-vindo à Central da Turma 2º E</h1>
-                    <p class="text-gray-blue text-lg mb-6">Seu hub digital para todas as informações importantes da turma. Fique por dentro de avisos, atividades, horários e muito mais!</p>
+                    <h1 id="home-title" class="text-4xl font-extrabold text-cyan-light mb-4">Bem-vindo à Central da Turma 2º E</h1>
+                    <p id="home-description" class="text-gray-blue text-lg mb-6">Seu hub digital para todas as informações importantes da turma. Fique por dentro de avisos, atividades, horários e muito mais!</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="glass-card-glow rounded-lg p-4 text-center">
-                            <p class="text-sm text-gray-blue">Atividades Pendentes</p>
+                            <p id="home-pending-label" class="text-sm text-gray-blue">Atividades Pendentes</p>
                             <p class="text-xl font-bold text-white mt-1 futuristic-detail" id="pending-activities-count">0</p>
                         </div>
                         <div class="glass-card-glow rounded-lg p-4 text-center">
-                            <p class="text-sm text-gray-blue">Próxima Aula</p>
+                            <p id="home-next-class-label" class="text-sm text-gray-blue">Próxima Aula</p>
                             <p class="text-xl font-bold text-white mt-1 futuristic-detail" id="next-class">Carregando...</p>
                         </div>
                     </div>
@@ -99,31 +99,31 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp delay-100">
-                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Últimos Avisos</h2>
+                        <h2 id="home-announcements-title" class="text-2xl font-bold text-cyan-light mb-4">Últimos Avisos</h2>
                         <div id="latest-announcements" class="space-y-4">
                             <!-- Latest announcements will be loaded here -->
                             <p class="text-gray-blue">Nenhum aviso recente.</p>
                         </div>
-                        <button id="home-announcements-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Ver Todos</button>
+                        <button id="home-announcements-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200"><span id="home-announcements-button">Ver Todos</span></button>
                     </div>
 
                     <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp delay-200">
-                        <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximas Datas</h2>
+                        <h2 id="home-dates-title" class="text-2xl font-bold text-cyan-light mb-4">Próximas Datas</h2>
                         <div id="upcoming-dates" class="space-y-4">
                             <!-- Upcoming dates will be loaded here -->
                             <p class="text-gray-blue">Nenhuma data próxima.</p>
                         </div>
-                        <button id="home-calendar-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Ver Calendário</button>
+                        <button id="home-calendar-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200"><span id="home-calendar-button">Ver Calendário</span></button>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl p-6 md:p-8 mt-6 animate-slideInUp delay-300">
-                    <h2 class="text-2xl font-bold text-cyan-light mb-4">Próximas Atividades</h2>
+                    <h2 id="home-activities-title" class="text-2xl font-bold text-cyan-light mb-4">Próximas Atividades</h2>
                     <div id="upcoming-activities" class="space-y-4">
                         <!-- Upcoming activities will be loaded here -->
                         <p class="text-gray-blue">Nenhuma atividade próxima.</p>
                     </div>
-                    <button id="home-activities-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Ver Todas</button>
+                    <button id="home-activities-btn" class="mt-6 px-6 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200"><span id="home-activities-button">Ver Todas</span></button>
                 </div>
             </section>
 
@@ -267,14 +267,14 @@
 
             <!-- About Page -->
             <section id="page-about" class="page-content hidden">
-                <h1 class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Sobre a Turma 2º E</h1>
+                <h1 id="about-title" class="text-4xl font-extrabold text-cyan-light mb-6 animate-fadeIn">Sobre a Turma 2º E</h1>
                 <div class="glass-card rounded-xl p-6 md:p-8 animate-slideInUp">
-                    <p class="text-gray-blue text-lg mb-4">Bem-vindos à página da turma 2º E, n sei mais oq escrever</p>
-                    <p class="text-gray-blue text-lg mb-4">n sei tambem oq escrever dnv</p>
+                    <p id="about-paragraph-1" class="text-gray-blue text-lg mb-4">Bem-vindos à página da turma 2º E, n sei mais oq escrever</p>
+                    <p id="about-paragraph-2" class="text-gray-blue text-lg mb-4">n sei tambem oq escrever dnv</p>
                     <ul class="list-disc list-inside text-gray-blue text-lg space-y-2">
-                        <li><strong>Ano:</strong> 2026</li>
-                        <li><strong>Representantes:</strong> Julia Portugal, Giovana Sabrina</li>
-                        <li><strong>Objetivo:</strong> n sei oq escrever dnv</li>
+                        <li><strong>Ano:</strong> <span id="about-year">2026</span></li>
+                        <li><strong>Representantes:</strong> <span id="about-representatives">Julia Portugal, Giovana Sabrina</span></li>
+                        <li><strong>Objetivo:</strong> <span id="about-objective">n sei oq escrever dnv</span></li>
                     </ul>
                 </div>
             </section>
@@ -327,6 +327,7 @@
                             <button data-admin-section="subjects" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Matérias</button>
                             <button data-admin-section="links" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Links</button>
                             <button data-admin-section="mural" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Mural</button>
+                            <button data-admin-section="content" class="admin-nav-btn glass-card-glow px-6 py-4 bg-navy-secondary text-white rounded-lg font-semibold hover:bg-cyan-light hover:text-navy-dark transition-colors duration-200">Textos do site</button>
                         </div>
                     </div>
 
@@ -474,6 +475,31 @@
                                 <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar Item</button>
                                 <button type="button" id="cancel-mural-edit" class="px-4 py-2 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-400 transition-colors duration-200">Cancelar</button>
                             </div>
+                        </form>
+                    </div>
+
+                    <div id="admin-section-content" class="admin-sub-section hidden glass-card rounded-xl p-6 md:p-8 mb-6 animate-slideInUp delay-200">
+                        <h3 class="text-2xl font-bold text-white mb-4">Editar textos do site</h3>
+                        <form id="site-content-form" class="space-y-4">
+                            <h4 class="text-xl font-bold text-cyan-light">Página inicial</h4>
+                            <input type="text" id="content-home-title" placeholder="Título da página inicial" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <textarea id="content-home-description" placeholder="Descrição da página inicial" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required></textarea>
+                            <input type="text" id="content-home-pending-label" placeholder="Nome do contador de atividades" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-next-class-label" placeholder="Nome do contador de aulas" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-announcements-title" placeholder="Título dos avisos" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-announcements-button" placeholder="Botão dos avisos" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-dates-title" placeholder="Título das datas" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-calendar-button" placeholder="Botão do calendário" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-activities-title" placeholder="Título das atividades" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-home-activities-button" placeholder="Botão das atividades" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <h4 class="text-xl font-bold text-cyan-light pt-4">Sobre a turma</h4>
+                            <input type="text" id="content-about-title" placeholder="Título da página Sobre" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <textarea id="content-about-paragraph-1" placeholder="Primeiro parágrafo" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required></textarea>
+                            <textarea id="content-about-paragraph-2" placeholder="Segundo parágrafo" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required></textarea>
+                            <input type="text" id="content-about-year" placeholder="Ano" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <input type="text" id="content-about-representatives" placeholder="Representantes" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required>
+                            <textarea id="content-about-objective" placeholder="Objetivo" class="w-full p-3 rounded-lg bg-navy-secondary border border-gray-blue/30 text-white" required></textarea>
+                            <button type="submit" class="px-4 py-2 bg-cyan-light text-navy-dark rounded-lg font-semibold hover:bg-white transition-colors duration-200">Salvar textos</button>
                         </form>
                     </div>
 
