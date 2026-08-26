@@ -814,11 +814,20 @@ ${dayActivities.map(a => a.name).join(', ')}`;
             let loginSucceeded = false;
 
             if (supabaseClient) {
-                const { error } = await supabaseClient.auth.signInWithPassword({
+                const { data: authData, error } = await supabaseClient.auth.signInWithPassword({
                     email: emailInput.value,
                     password: passwordInput.value
                 });
                 loginSucceeded = !error;
+
+                if (loginSucceeded && authData.user) {
+                    const { data: representative, error: representativeError } = await supabaseClient
+                        .from('class_central_representatives')
+                        .select('user_id')
+                        .eq('user_id', authData.user.id)
+                        .maybeSingle();
+                    loginSucceeded = !representativeError && Boolean(representative);
+                }
             } else {
                 errorMessage.textContent = 'Configure o Supabase para habilitar o acesso administrativo.';
             }
